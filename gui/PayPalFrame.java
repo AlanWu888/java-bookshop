@@ -1,21 +1,13 @@
 package gui;
 
-import java.awt.EventQueue;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
 import java.text.NumberFormat;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import java.awt.event.FocusAdapter;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Color;
-import java.awt.SystemColor;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import javax.swing.JSeparator;
 import java.awt.Toolkit;

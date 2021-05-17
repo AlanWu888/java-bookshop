@@ -1,8 +1,12 @@
 package textfile_handler;
 
-import java.util.Arrays;
-
 public class StringToDateFormatter {
+	/**
+	 * This class helps to convert date formats - between dd-MM-yyyy and yyyy-MM-dd
+	 * @param in - input dates
+	 * @return out - output dates
+	 */
+	
 	
 	// dd-MM-yyyy to yyyy-MM-dd
 	public static String convStrToDate(String in) {

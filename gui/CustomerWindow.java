@@ -1,58 +1,33 @@
 package gui;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.NumberFormat;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 import java.util.regex.PatternSyntaxException;
-
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.Color;
-import java.awt.Dimension;
-
-import javax.swing.UIManager;
-import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
-
-import java.awt.FlowLayout;
 import javax.swing.JComboBox;
 import java.awt.BorderLayout;
-
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
-import javax.swing.JScrollPane;
-import javax.swing.ScrollPaneConstants;
 import javax.swing.JTable;
-import java.awt.CardLayout;
-import java.awt.GridLayout;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.RowFilter;
-
 import book.BookTypes_e;
-import book.Audiobook;
-import book.PaperBack;
-import book.Ebook;
 import book.Genre_e;
 import book.Language_e;
-
 import textfile_handler.SearchFilters_e;
 import textfile_handler.Status_e;
-
-import user.Customer;
 import user.Address;
 import user.UserType_e;
 import java.awt.event.MouseAdapter;

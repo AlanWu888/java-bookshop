@@ -7,6 +7,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 
 public class UserAccounts {
+	/**
+	 * Finds all user accounts to be used in the login screen and the log.
+	 * @return List<user.User> the list of users in the textfile
+	 * @throws FileNotFoundException
+	 */
 	public static List<user.User> getUsers() throws FileNotFoundException {
 		List<user.User> allUsers = new ArrayList<user.User>();
 		String USER = "UserAccounts.txt";

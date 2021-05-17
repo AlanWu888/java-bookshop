@@ -1,6 +1,9 @@
 package user;
 
 public class Address {
+	/**
+	 * Each user's address is stored as an object of the Address class
+	 */
 	protected String doorNo, postcode, city;
 	// doorNo is a string because sometimes Door Numbers contain letters in them, i.e 14A/ 14B
 	

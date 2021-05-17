@@ -4,20 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import book.BookTypes_e;
-import book.Genre_e;
-import book.Language_e;
-import book.PaperBack;
-
 import java.time.LocalDate;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 
 public class Stock {
-	static String STOCK = "Stock.txt";
+	static String STOCK = "Stock.txt";	// const String for defining text file which holds stock data
 	
 	public static List<book.Book> getStock() throws FileNotFoundException {
+		/**
+		 * 	Getter method which returns all books in the stock text file as a list of Book objects
+		 * 	@return List of Book objects (from the book package)
+		 */
 		List<book.Book> stockContents = new ArrayList<book.Book>();
 		try {
 			List<book.Book> listStock = new ArrayList<book.Book>();
@@ -71,7 +71,15 @@ public class Stock {
 		return stockContents;	// return List<book.Book> :: List of book objects
 	}
 	
-	public static void removeFromStock(String ISBN, int quantity, double price) {
+	public static void removeFromStock(String ISBN, int quantity) {
+		/**
+		 * 	void method which removes books from the stock text file one at a time
+		 * 	<p>
+		 * 	Books are removed by matching ISBN (assuming that every book is supposed to have unique ISBNs)
+		 * 	and then depending on the quantity, the stock data will be removed
+		 * 
+		 * 	@param ISBN: String, quantity: int
+		 */
 		try {
 			List<book.Book> stock = new ArrayList<book.Book>(getStock());
 			for(book.Book book : stock) {
@@ -100,13 +108,18 @@ public class Stock {
 	}
 	
 	public static void addBook(book.Book newBook) {
+		/**
+		 * 	void method which allows Admin users to add books to the stock text file
+		 * 	@param newBook: Book object
+		 */
 		try {
 			List<book.Book> currentStock = new ArrayList<book.Book>(getStock());
 			for (book.Book book : currentStock) {
 				if (book.getISBN().equals(newBook.getISBN())) {		// check if book already exists on the system
 					System.out.println("This book already exists in the system, adding quantity");
 					book.setQuantity(newBook.getQuantity(), true);
-				} else {
+					break;
+				} else {	// if book isn't already in the system
 					System.out.println("This book is currently not in the system");
 					currentStock.add(newBook);
 				}
@@ -115,11 +128,15 @@ public class Stock {
 		} catch (Exception e) {
 			e.getStackTrace();
 			System.out.println(e.getMessage());
-		}
-		
+		}		
 	}
 	
 	public static void writeStock(List<book.Book> newStock) {
+		/**
+		 * 	void method which takes a list of book objects as a parameter to write to the stock text file.
+		 * 	The newStock is a combination of old stock and new stock added to the system
+		 * 	@param newStock: List<book.Book>
+		 */
 		try {
 			FileWriter updateStock = new FileWriter(STOCK);
 			for (book.Book book : newStock) {

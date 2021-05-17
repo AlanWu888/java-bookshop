@@ -1,7 +1,5 @@
 package gui;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
@@ -263,7 +261,7 @@ public class AddBook_Frame {
 		lbl_poundSign.setBounds(230, 303, 30, 30);
 		frm_addBook.getContentPane().add(lbl_poundSign);
 		
-		txt_qty = new JTextField();
+		txt_qty = new JTextField("1");
 		txt_qty.setHorizontalAlignment(SwingConstants.CENTER);
 		txt_qty.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		txt_qty.setColumns(10);
@@ -271,11 +269,33 @@ public class AddBook_Frame {
 		frm_addBook.getContentPane().add(txt_qty);
 		
 		JButton btn_less = new JButton("-");
+		btn_less.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// decrease quantity value
+				int qty = Integer.parseInt(txt_qty.getText());
+				if (qty > 1) {
+					qty--;
+					txt_qty.setText(String.valueOf(qty));
+					System.out.println("Decreasing quantity of chosen book");
+				}
+			}
+		});
 		btn_less.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btn_less.setBounds(20, 370, 50, 50);
 		frm_addBook.getContentPane().add(btn_less);
 		
 		JButton btn_more = new JButton("+");
+		btn_more.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// increment quantity value
+				int qty = Integer.parseInt(txt_qty.getText());
+				qty++;
+				txt_qty.setText(String.valueOf(qty));
+				System.out.println("Incrementing quantity of chosen book");
+			}
+		});
+		
 		btn_more.setBounds(130, 370, 50, 50);
 		frm_addBook.getContentPane().add(btn_more);
 		

@@ -15,6 +15,11 @@ public class ActivityLog {
 	static String LOG = "ActivityLog.txt";
 	
 	public static List<textfile_handler.LogEntry> getLog() throws FileNotFoundException {
+		/**
+		 * 	Getter method which returns contents of the log file as a List of LogEntry objects
+		 * 	
+		 * 	@return List<textfile_handler.LogEntry
+		 */
 		List<textfile_handler.LogEntry> logContents = new ArrayList<textfile_handler.LogEntry>();
 		try {
 			List<textfile_handler.LogEntry> listContents = new ArrayList<textfile_handler.LogEntry>();
@@ -49,14 +54,17 @@ public class ActivityLog {
 	}
 	
 	public static void writeToLog(LogEntry logEntry) {
+		/**
+		 * 	void method which writes to the log file
+		 * 	@param logEntry object called logEntry
+		 */
 		System.out.println("Writing to log:");
 		System.out.println(logEntry);
 		try(FileWriter fw = new FileWriter(LOG, true);
 			    BufferedWriter bw = new BufferedWriter(fw);
 			    PrintWriter out = new PrintWriter(bw))
 			{
-			    out.println(logEntry);
-
+			    System.out.println(logEntry);	// show log being written into text file
 			} catch (IOException e) {
 			    e.printStackTrace();
 			    System.out.println(e.getMessage());

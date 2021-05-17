@@ -1,9 +1,6 @@
 package book;
 
-import java.util.Arrays;
-
-import textfile_handler.SearchFilters_e;
-
+// Availabe Genres which a book can have
 public enum Genre_e {
 	POLITICS,
 	MEDICINE,

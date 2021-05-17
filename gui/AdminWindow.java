@@ -21,6 +21,8 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import javax.swing.JTextField;
 import javax.swing.JSeparator;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class AdminWindow {
 	private JTable tbl_books;
@@ -132,16 +134,28 @@ public class AdminWindow {
 		btn_addBook.setBounds(932, 5, 120, 31);
 		pnl_searchBar.add(btn_addBook);
 		
-		JButton btnn_refreshStock = new JButton("Refresh stock");
-		btnn_refreshStock.addMouseListener(new MouseAdapter() {
+		JButton btn_refreshStock = new JButton("Refresh stock");
+		btn_refreshStock.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+				System.out.println("refreshing stock");
+				tableModel_books.setRowCount(0);
+				List<book.Book> stock = new ArrayList<book.Book>(); 
+				try {
+					stock = textfile_handler.Stock.getStock();		
+					for (book.Book book : stock ) {
+						String[] data = book.toString().split(",");
+						tableModel_books.addRow(data);
+					}
+				} catch (Exception ex) {
+					ex.getStackTrace();
+					System.out.println(ex.getMessage());
+				}
 			}
 		});
-		btnn_refreshStock.setToolTipText("");
-		btnn_refreshStock.setBounds(801, 5, 120, 31);
-		pnl_searchBar.add(btnn_refreshStock);
+		btn_refreshStock.setToolTipText("");
+		btn_refreshStock.setBounds(801, 5, 120, 31);
+		pnl_searchBar.add(btn_refreshStock);
 		
 		JPanel pnl_books = new JPanel();
 		pnl_books.setBackground(new Color(0, 0, 0));

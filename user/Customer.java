@@ -43,24 +43,31 @@ public class Customer extends User {
 		basket.add(newItem);
 	}
 	
+	/**
+	 * 	Method which removes all items from the customer's basket, and also logs the cancelling of the basket
+	 */
 	public void cancelBasket() {
 		System.out.println("Removing all from basket");
 		basket.removeAll(basket);
 	}
 	
+	/**
+	 * Method which handles the customer's payment requests.
+	 * This method will remove all items from the basket and will also write to the log how the customer has paid.
+	 * @param payment : Stirng - payment method which the customer has used to pay for their basket
+	 */
 	public void transaction(String payment) {
 		for (int i = 0; i<basket.size(); i++) {
 			String ISBN = basket.get(i).getISBN();
 			int quantity = basket.get(i).getQuantity();
-			double price = basket.get(i).getPrice();
-			textfile_handler.Stock.removeFromStock(ISBN, quantity, price);
+			textfile_handler.Stock.removeFromStock(ISBN, quantity);
 		}
 		updateLog(Status_e.PURCHASED, payment);
 		basket.removeAll(basket);
 	}
 	
 	/*	separate sub for each filter of search as it makes program more efficient - in my opinion
-	 * 		alternative way would have been to use a lot of if statements in for clause in try clause
+	 * 	alternative way would have been to use a lot of if statements in for clause in try clause
 	 */
 	public List<book.Book> getResLangSearch(String keyword) {
 		 // keyword	- keyword to search by ( check book package enum types for constants )

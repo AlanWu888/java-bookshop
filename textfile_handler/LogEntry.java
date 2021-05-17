@@ -1,7 +1,6 @@
 package textfile_handler;
 
 import java.time.LocalDate;
-import textfile_handler.StringToDateFormatter;
 
 public class LogEntry {
 	private int userID, quantity;
@@ -10,7 +9,7 @@ public class LogEntry {
 	private double price;
 	private LocalDate logDate;
 	
-	// constructors
+	// constructor
 	public LogEntry(int userID, String postcode, String ISBN, double price, int quantity, Status_e status, String paymentMethod, LocalDate logDate) {
 		this.userID = userID;
 		this.postcode = postcode;
@@ -20,7 +19,7 @@ public class LogEntry {
 		this.status = status;
 		this.paymentMethod = paymentMethod;
 		this.logDate = logDate;
-		this.storedDate = textfile_handler.StringToDateFormatter.convDateToStr(logDate.toString());
+		this.storedDate = textfile_handler.StringToDateFormatter.convDateToStr(logDate.toString());	// converts from LocalDate format into format stored in the log file
 	}
 	
 	// toString Method

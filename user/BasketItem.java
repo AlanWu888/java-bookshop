@@ -1,6 +1,12 @@
 package user;
 
 public class BasketItem {
+	/**
+	 * 	Each item in the customer's basket is an object belonging to the BasketItem class
+	 * 	<p>
+	 * 	This approach has been used as it means less information is moved around the system for
+	 * 	the adding to basket mechanism
+	 */
 	private String ISBN;
 	private Integer quantity;
 	private double price;

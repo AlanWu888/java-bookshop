@@ -1,7 +1,6 @@
 package book;
 
-import java.util.Arrays;
-
+// Available languages in the system
 public enum Language_e {
 	ENGLISH,
 	FRENCH
